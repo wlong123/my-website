@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from '../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-contact',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  onSubmit(form: NgForm) {
+    form.reset();
+    this.router.navigate(['/submit']);
   }
 
 }
